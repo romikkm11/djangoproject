@@ -1,0 +1,14 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Видалення статті {% endblock %}
+
+{% block content%}
+    <div class="features">
+        <h1>Видалення статті</h1>
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn btn-success" type="submit">Видалити статтю</button>
+
+
+        </form>
+{% endblock %}
