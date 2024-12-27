@@ -79,3 +79,9 @@ form{
     width: 500px;
     margin-top: 50px;
 }
+
+#map {
+    height: 500px;
+    width: 100%;
+    margin-top: 20px;
+}
