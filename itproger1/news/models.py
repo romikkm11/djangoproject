@@ -15,3 +15,11 @@ class Articles(models.Model):
     class Meta:
         verbose_name = 'Новина'
         verbose_name_plural = 'Новини!!!'
+        
+class Service(models.Model):
+    name = models.CharField(max_length=200, verbose_name="Назва")
+    latitude = models.FloatField(verbose_name="Широта")
+    longititude = models.FloatField(verbose_name="Довгота")
+
+    def __str__(self):
+        return self.name
