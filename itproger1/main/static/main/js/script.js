@@ -6,19 +6,15 @@ document.addEventListener('DOMContentLoaded', function() {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
     
-    // Запит до сервера для отримання координат
     fetch('/services/')
         .then(response => response.json())
         .then(data => {
-            console.log('Services data:', data);
-            // Додаємо маркери на карту
+            
             data.services.forEach(service => {
-                L.marker([service.latitude, service.longititude]) // Використовуємо longititude
+                L.marker([service.latitude, service.longititude])
                     .addTo(map)
-                    .bindPopup(`<b>${service.name}</b>`); // Відображення назви послуги
+                    .bindPopup(`<b>${service.name}</b>`); 
             });
         })
-        .catch(error => {
-            console.error('Error fetching services:', error);
-        });
+       
 });

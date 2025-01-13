@@ -52,10 +52,10 @@ def create(request):
     return render(request, 'news/create.html', data)
 
 def show_services_on_map(request):
-    services = Service.objects.all()  # Отримуємо всі записи
+    services = Service.objects.all()
     services_data = [
         {'latitude': service.latitude, 'longititude': service.longititude, 'name': service.name}
         for service in services
     ]
-    return JsonResponse({'services': services_data})  # JSON-відповідь
+    return JsonResponse({'services': services_data}) 
 
