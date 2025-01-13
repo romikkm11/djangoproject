@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .models import Articles
 from .forms import ArticlesForm
 from django.views.generic import DetailView, UpdateView, DeleteView
+from .models import Service
+from django.http import JsonResponse
 
 
 def news_home(request):
@@ -48,3 +50,12 @@ def create(request):
         'error': error
     }
     return render(request, 'news/create.html', data)
+
+def show_services_on_map(request):
+    services = Service.objects.all()  # Отримуємо всі записи
+    services_data = [
+        {'latitude': service.latitude, 'longititude': service.longititude, 'name': service.name}
+        for service in services
+    ]
+    return JsonResponse({'services': services_data})  # JSON-відповідь
+

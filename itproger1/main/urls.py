@@ -14,10 +14,11 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
     path('', views.index, name='home'),
     path('about/', views.about, name='about'),  
+    path('', include('news.urls')),  # Підключаємо всі маршрути з додатку news
 ]
