@@ -18,8 +18,8 @@ class Articles(models.Model):
         
 class Service(models.Model):
     name = models.CharField(max_length=200, verbose_name="Назва")
-    latitude = models.FloatField(verbose_name="Широта")
-    longititude = models.FloatField(verbose_name="Довгота")
+    latitude = models.FloatField(verbose_name="Широта", null = True, blank = True)
+    longititude = models.FloatField(verbose_name="Довгота", null = True, blank = True)
 
     def __str__(self):
         return self.name

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
     
-    fetch('/services/')
+    fetch('/services/') 
         .then(response => response.json())
         .then(data => {
             
