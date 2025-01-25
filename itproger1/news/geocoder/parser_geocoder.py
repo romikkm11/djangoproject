@@ -9,7 +9,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'itproger1.settings')
 django.setup()
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'config')) ###Шлях до API геокодера
 
-from news.models import Service
+from news.models import Company
 import config ###Імпорт файлу з API геокодера
 
 ###Функції для парсингу адреси    
@@ -43,7 +43,7 @@ for company in companies:
 
     if response.status_code == 200:
         soup = BeautifulSoup(response.text, 'html.parser')
-        service_name = soup.find('title').text.strip()
+        company_name = soup.find('title').text.strip()
         try:
             # Виклик методу безпосередньо з параметрів компанії
             address_text = company['get_address'](soup, company)
@@ -64,17 +64,17 @@ for company in companies:
 
         response = requests.get(url, params=params)
 
-        service_pos = response.json()['items'][0]['position']
+        company_pos = response.json()['items'][0]['position']
 
-        service_latitude = service_pos['lat']
-        service_longititude = service_pos['lng'] 
+        company_latitude = company_pos['lat']
+        company_longititude = company_pos['lng'] 
    
         ###Оновлення запису в БД
-        service, created = Service.objects.update_or_create(
-                name=service_name,
-                latitude = service_latitude,
-                longititude = service_longititude
+        company, created = Company.objects.update_or_create(
+                name=company_name,
+                latitude = company_latitude,
+                longititude = company_longititude
             )
     else:
         print(f"Помилка: не вдалося отримати дані, код статусу: {response.status_code}")
-    print(service_name, service_latitude, service_longititude)
+    print(company_name, company_latitude, company_longititude)

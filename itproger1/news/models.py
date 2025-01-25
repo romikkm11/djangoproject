@@ -16,7 +16,7 @@ class Articles(models.Model):
         verbose_name = 'Новина'
         verbose_name_plural = 'Новини!!!'
         
-class Service(models.Model):
+class Company(models.Model):
     name = models.CharField(max_length=200, verbose_name="Назва")
     latitude = models.FloatField(verbose_name="Широта", null = True, blank = True)
     longititude = models.FloatField(verbose_name="Довгота", null = True, blank = True)

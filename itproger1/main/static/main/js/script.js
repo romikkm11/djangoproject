@@ -10,10 +10,10 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             
-            data.services.forEach(service => {
-                L.marker([service.latitude, service.longititude])
+            data.companies.forEach(company => {
+                L.marker([company.latitude, company.longititude])
                     .addTo(map)
-                    .bindPopup(`<b>${service.name}</b>`); 
+                    .bindPopup(`<b>${company.name}</b>`); 
             });
         })
        

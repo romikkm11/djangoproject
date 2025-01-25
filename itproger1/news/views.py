@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Articles
 from .forms import ArticlesForm
 from django.views.generic import DetailView, UpdateView, DeleteView
-from .models import Service
+from .models import Company
 from django.http import JsonResponse
 
 
@@ -51,11 +51,11 @@ def create(request):
     }
     return render(request, 'news/create.html', data)
 
-def show_services_on_map(request):
-    services = Service.objects.all()
-    services_data = [
-        {'latitude': service.latitude, 'longititude': service.longititude, 'name': service.name}
-        for service in services
+def show_companies_on_map(request):
+    companies = Company.objects.all()
+    companies_data = [
+        {'latitude': company.latitude, 'longititude': company.longititude, 'name': company.name}
+        for company in companies
     ]
-    return JsonResponse({'services': services_data}) 
+    return JsonResponse({'companies': companies_data}) 
 
