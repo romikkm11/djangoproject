@@ -3,11 +3,13 @@ from bs4 import BeautifulSoup
 import os
 import django
 import sys
+from dotenv import load_dotenv
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..')) ###Шлях до кореневої папки для парсера
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'itproger1.settings')
 django.setup()
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'config')) ###Шлях до API геокодера
+load_dotenv()
 
 from news.models import Company
 import config ###Імпорт файлу з API геокодера
@@ -23,12 +25,12 @@ def get_address_method_2(soup, company):
 
 companies = [
     {
-        'url' : '',
+        'url' : os.getenv('URL_1'),
         'address_selector' : {'data-id': 'ef86798'},
         'get_address': get_address_method_1 
     },
     {
-        'url' : '',
+        'url' : os.getenv('URL_2'),
         'address_selector' : {'class': 'footer-info'},
         'get_address': get_address_method_2 
     }
