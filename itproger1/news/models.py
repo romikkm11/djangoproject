@@ -38,9 +38,13 @@ class Service(models.Model):
         return self.name
     
 class Price(models.Model):
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    min_price = models.DecimalField(max_digits=10, decimal_places=2)
+    max_price = models.DecimalField(max_digits=10, decimal_places=2, null=True)
     service = models.ForeignKey(Service, on_delete=models.CASCADE)
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.price
+        if self.max_price:
+            return f"Service: {self.service.name}, Min Price: {self.min_price}, Max Price: {self.max_price}"
+        else:
+            return f"Service: {self.service.name}, Min Price: {self.min_price}" 
