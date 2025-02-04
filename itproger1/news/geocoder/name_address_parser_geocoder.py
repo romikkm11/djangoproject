@@ -8,13 +8,13 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'itproger1.settings')
 django.setup()
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'config')) ###Шлях до API геокодера
 
-
 from news.models import Company
 import config ###Імпорт файлу з API геокодера
 
 
 for company in companies:
     response = requests.get(company['url'], headers=headers)
+    response.encoding = 'utf-8'
 
     if response.status_code == 200:
         soup = BeautifulSoup(response.text, 'html.parser')
@@ -43,7 +43,7 @@ for company in companies:
         company_latitude = company_pos['lat']
         company_longititude = company_pos['lng'] 
    
-        ##Оновлення запису в БД
+    #     ##Оновлення запису в БД
         company, created = Company.objects.update_or_create(
                 name=company_name,
                 latitude = company_latitude,
@@ -52,6 +52,7 @@ for company in companies:
     else:
         print(f"Помилка: не вдалося отримати дані, код статусу: {response.status_code}")
     print(company_name, company_latitude, company_longititude)
+    # print(company_name, address_text)
 
 
 
