@@ -1,6 +1,6 @@
 body {
-    background: #2c2c2c
-    
+    background: #2c2c2c;
+    overflow: hidden;
 }
 
 a{
@@ -55,7 +55,9 @@ main .features{
     color: #fff;
     margin-top: 100px;
     text-align: center;
-    width: 75%;
+    /* width: 75%; */
+    width: 100%;
+    height: 100vh;
 }
 
 main .features h1{
@@ -80,8 +82,69 @@ form{
     margin-top: 50px;
 }
 
-#map {
-    height: 500px;
-    width: 100%;
-    margin-top: 20px;
+.map-container{
+    position: relative;
 }
+
+.filters{
+    position: absolute;
+    z-index: 1000;
+    display: flex;
+}
+
+select{
+    width: 25vw;
+    opacity: 75%;
+    border-radius: 50px;
+    /* text-align: center; */
+}
+
+
+#map {
+    position: absolute;
+    height: 1000px;
+    width: 100%;
+    /* margin-top: 20px; */
+    z-index: 1;
+}
+
+#applyFiltersBtn{
+    border-radius: 50px;
+}
+
+button{
+    width: 25vw;
+}
+
+.disabledSelected{
+    text-align: center;
+}
+.price-label {
+    background: transparent;
+    border: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Вирівнює ціну по центру маркера */
+}
+
+.price-text {
+    background-color: white;
+    padding: 5px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+    display: inline-block;
+    min-width: 50px;
+    position: absolute;
+    bottom: 100%; /* Піднімає блок рівно над маркером */
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px); /* Додає відступ між ціною і маркером */
+}
+
+
+
+
+

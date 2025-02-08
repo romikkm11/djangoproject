@@ -3,16 +3,20 @@
 {% block title %} {{ title }} {% endblock %}
 
 {% block content%}
-    <div class="features">
-        <h1>{{ title }}</h1>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis corporis maiores aspernatur voluptate placeat illo iste eaque, doloremque consectetur reprehenderit iure pariatur distinctio molestiae quod expedita beatae sit? Necessitatibus, praesentium!</p>
-        <select id="serviceTypeSelect"><option value="" disabled selected>Тип</option></select>
-        <select id="serviceSelect"><option value="" disabled selected>Послуга</option></select>
-        <select id="companySelect"><option value="" disabled selected>Компанія</option></select>
+    <!-- <div class="features"> -->
+        <!-- <h1>{{ title }}</h1> -->
+        <!-- <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis corporis maiores aspernatur voluptate placeat illo iste eaque, doloremque consectetur reprehenderit iure pariatur distinctio molestiae quod expedita beatae sit? Necessitatibus, praesentium!</p> -->
+        <div class="map-container"> 
+        <div id="map"></div>
+        <div class="filters">
+        <select id="serviceTypeSelect"><option class="disabledSelected" value="" disabled selected>Тип</option></select>
+        <select id="serviceSelect"><option class="disabledSelected" value="" disabled selected>Послуга</option></select>
+        <select id="companySelect"><option class="disabledSelected" value="" disabled selected>Компанія</option></select>
         <button id="applyFiltersBtn">Застосувати фільтри</button>
-        <button class="btn btn-warning">На сторінку про нас</button>
+    </div>
+</div>
+        <!-- <button class="btn btn-warning">На сторінку про нас</button> -->
 
-    <div id="map"></div>
     
 
 {% endblock %}
