@@ -7,7 +7,7 @@ a{
     text-decoration: none;
 }
 
-aside{
+/* aside{
     float: left;
     background: #181818;
     width: 20%;
@@ -15,14 +15,14 @@ aside{
     height: 100vh;
     color: #fff;
     border-right: 5px solid #4d4d4d;
-}
+} */
 
-aside img{
+/* aside img{
     width: 80px;
     float: left;
-}
+} */
 
-aside .logo{
+/* aside .logo{
     font-size: 40px;
     margin-left: 10px;
     font-weight: bold;
@@ -48,7 +48,7 @@ aside ul li:hover, aside ul a:hover{
     color: #eb5959;
     transform: scale(1.05);
 
-}
+} */
 
 main .features{
     float: left;
@@ -68,13 +68,13 @@ main .features p{
     margin: 20px auto;
 }
 
-.alert-warning{
+/* .alert-warning{
     float: left;
     clear: both;
     width: 400px;
     margin: 20px 34%;
     text-align: left;
-}
+} */
 
 form{
     margin-left: 32%;
@@ -92,11 +92,23 @@ form{
     display: flex;
 }
 
+.filter{
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+
+}
+label{
+    text-align: center;
+    margin: 5px;
+}
+
 select{
-    width: 25vw;
+    width: 100%;
     opacity: 75%;
     border-radius: 50px;
-    /* text-align: center; */
+    margin: 10px;
+    height: 7vh;
 }
 
 
@@ -104,16 +116,7 @@ select{
     position: absolute;
     height: 1000px;
     width: 100%;
-    /* margin-top: 20px; */
     z-index: 1;
-}
-
-#applyFiltersBtn{
-    border-radius: 50px;
-}
-
-button{
-    width: 25vw;
 }
 
 .disabledSelected{
@@ -125,7 +128,7 @@ button{
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Вирівнює ціну по центру маркера */
+    align-items: center; 
 }
 
 .price-text {
@@ -139,12 +142,48 @@ button{
     display: inline-block;
     min-width: 50px;
     position: absolute;
-    bottom: 100%; /* Піднімає блок рівно над маркером */
+    bottom: 100%; 
     left: 50%;
-    transform: translateX(-50%) translateY(-20px); /* Додає відступ між ціною і маркером */
+    transform: translateX(-50%) translateY(-20px);
+}
+aside {
+    position: absolute;
+    width: 90vw;
+    height: 80vh;
+    z-index: 1000;
+    transform: translate(0, 20%);
+    background: white;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    transition: .2s;
+    padding: 10px;
 }
 
+.hidden{
+    transform: translate(-95%, 20%);
+}
+.content{
+    height: 100%;
+    overflow-y:auto;
+}
 
+button{
+    position: absolute;
+    border-radius: 50%;
+    right: 0;
+    
+}
+.cardItem {
+    display: flex;              
+    justify-content: space-between; 
+    border: 1px solid black;    
+    width: 100%;               
+    height: 10%;
+    padding: 5px;
+    overflow: hidden;
+}
 
-
-
+.service, .price, .company {
+    flex: 1;
+    overflow: hidden;                    
+}

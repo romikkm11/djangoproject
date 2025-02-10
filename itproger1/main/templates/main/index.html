@@ -9,11 +9,24 @@
         <div class="map-container"> 
         <div id="map"></div>
         <div class="filters">
-        <select id="serviceTypeSelect"><option class="disabledSelected" value="" disabled selected>Тип</option></select>
-        <select id="serviceSelect"><option class="disabledSelected" value="" disabled selected>Послуга</option></select>
-        <select id="companySelect"><option class="disabledSelected" value="" disabled selected>Компанія</option></select>
-        <button id="applyFiltersBtn">Застосувати фільтри</button>
+        <div class="filter">
+            <label for="serviceTypeSelect">Тип</label>
+            <select id="serviceTypeSelect"></select>
+        </div>
+        <div class="filter">
+            <label for="serviceSelect">Послуга</label>
+            <select id="serviceSelect"></select>
+        </div>
+        <div class="filter">
+            <label for="companySelect">Компанія</label>
+            <select id="companySelect"></select>
+        </div>
+        
     </div>
+    <aside class="hidden">
+        <button id="toggleButton">C</button>
+        <div class="content" id="aside"></div>
+    </aside>
 </div>
         <!-- <button class="btn btn-warning">На сторінку про нас</button> -->
 

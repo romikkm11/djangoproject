@@ -65,11 +65,12 @@ def get_filters(request):
     service_types = ServiceType.objects.all().values('id', 'name')
     services = Service.objects.all().values('id', 'name', 'type_id')
     companies = Company.objects.all().values('id', 'name')
-
+    prices = Price.objects.select_related('service', 'company').values('min_price', 'service__name', 'company__name')
     filters = {
         "service_types": list(service_types),
         "services": list(services),
-        "companies": list(companies)
+        "companies": list(companies),
+        "prices": list(prices)
     }
 
     return JsonResponse(filters)
